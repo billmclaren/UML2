@@ -306,6 +306,14 @@ public class IntroductionToUMLProfiles {
 			xmlFeatureKindProperty);
 		getStereotypePropertyValue(totalAmountProperty, eAttributeStereotype,
 			attributeNameProperty);
+		
+		Resource res = epo2Model.eResource();
+		URI newURI = res.getURI().trimSegments(1).appendSegment("updated.uml");
+
+		// This saves the model and the stereotype applications that were added
+		// to its resource
+		res.setURI(newURI);
+		res.save(null);
 	}
 
 	//
